@@ -1,0 +1,14 @@
+#! /bin/bash
+
+echo "Cleaning up..."
+rm ./tmp -rf
+mkdir -p ./tmp/
+echo "Compiling..."
+bundle exec jekyll build
+echo "Creating the package..."
+tar zcf tmp/sn.tar.gz _site/
+echo "Uploading the package..."
+scp tmp/sn.tar.gz lxsameer@lxsameer.com:/home/lxsameer/tmp/sn.tar.gz
+echo "Running remote commands..."
+ssh lxsameer@lxsameer.com 'bash -s' < ./scripts/remote.sh
+echo "Done!"
