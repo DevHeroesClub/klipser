@@ -4,9 +4,9 @@ echo "Cleaning up..."
 rm ./tmp -rf
 mkdir -p ./tmp/
 echo "Compiling..."
-bundle exec jekyll build
+bundle exec rake compile
 echo "Creating the package..."
-tar zcf tmp/sn.tar.gz _site/
+tar zcf tmp/sn.tar.gz build/
 echo "Uploading the package..."
 scp tmp/sn.tar.gz lxsameer@lxsameer.com:/home/lxsameer/tmp/sn.tar.gz
 echo "Running remote commands..."
