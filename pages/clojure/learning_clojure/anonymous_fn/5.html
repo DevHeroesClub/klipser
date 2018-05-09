@@ -1,0 +1,33 @@
+<pre>
+  <code class="clj">
+
+(map #(println "Hello" %) ["sameer" "amirrezaask" "pouya"])
+;; => Hello sameer
+;; => Hello amirrezaask
+;; => Hello pouya
+;; => (nil nil nil)
+
+(def print-hello #(println "Hello" %&))
+(print-hello "sameer" "amirrezaask" "pouya")
+;; => Hello (sameer amirrezaask pouya)
+;; => nil
+
+(def fn1 #(/ (* %1 %2) 2))
+(fn1 5 7)
+;; => 35/2
+
+(#(/ (* %1 %2) 2.0) 5 7)
+;; => 17.5
+
+(def filter-even #(filter even? %))
+(filter-even [1 2 3 4 5 6])
+;; => (2 4 6)
+
+(map #(* % %) (range 1 20))
+;; => (1 4 9 16 25 36 49 64 81 100 121 144 169 196 225 256 289 324 361)
+
+(map #(* %1 %2) (range 1 20) (range 21 40))
+;; => (21 44 69 96 125 156 189 224 261 300 341 384 429 476 525 576 629 684 741)
+
+  </code>
+</pre>
